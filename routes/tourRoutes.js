@@ -9,6 +9,8 @@ router
 
 // router.param("id", tourController.checkId);
 
+router.route("/tour-stats").get(tourController.getTourStats);
+
 router
   .route("/")
   .get(tourController.getAllTours)
