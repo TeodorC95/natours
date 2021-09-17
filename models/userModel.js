@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
     required: [true, "A user must have a name!"],
     trim: true,
     maxlength: [40, "A user name must have less or equal than 40 characters"],
-    minlength: [7, "A user name must have more than 6 characters"],
+    minlength: [5, "A user name must have more than 6 characters"],
   },
   email: {
     type: String,
@@ -18,6 +18,11 @@ const userSchema = new mongoose.Schema({
     validate: [validator.isEmail, "Please provide a valid email"],
   },
   photo: String,
+  role: {
+    type: String,
+    enum: ["user", "guide", "lead-guide", "admin"],
+    default: "user",
+  },
   password: {
     type: String,
     required: [true, "Please provide a password"],
